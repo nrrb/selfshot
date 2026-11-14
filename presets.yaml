@@ -1,0 +1,73 @@
+# Presets are combined into a prompt like:
+#   "{trigger}, {scene.framing}, wearing {outfit}{, extras}, {scene.setting}, natural skin texture, {scene.expression}"
+#
+# Describe what CHANGES. Never describe your face, tattoo or piercings: the LoRA already knows them,
+# and describing them invites the model to redraw them.
+#
+# Tip: open collars and crew necks show the neck tattoo; a buttoned collar with a tie covers part of it.
+
+outfits:
+  burgundy-oxford: a burgundy button-down oxford shirt, top button open
+  black-shirt: a black button-down dress shirt, collar open
+  white-shirt: a crisp white plain dress shirt, collar open
+  light-blue-shirt: a light blue plain dress shirt, collar open
+  navy-shirt: a navy plain dress shirt, collar open
+  pink-shirt: a pale pink plain dress shirt, collar open
+  suit-tie: a tailored black suit jacket, white dress shirt and a slim black tie
+  navy-blazer-tee: an unstructured navy blazer over a charcoal crewneck t-shirt
+  black-cable-knit: a black cable-knit crewneck sweater
+  olive-field-jacket: a dark olive field jacket over a black t-shirt
+  leather-jacket: a black leather jacket over a black t-shirt
+
+extras:
+  glasses: clear acrylic frame glasses
+  stubble: light stubble
+
+scenes:
+  brick-alley:
+    framing: head and shoulders portrait
+    setting: >
+      standing in a narrow brick alley at golden hour, warm bokeh lights behind him, soft side light,
+      shot on an 85mm lens at f/2, shallow depth of field
+    expression: gentle closed-mouth smile
+  window-light:
+    framing: head and shoulders portrait
+    setting: soft diffused window light from the left, out-of-focus interior background, 85mm lens
+    expression: warm relaxed smile
+  studio-charcoal:
+    framing: classic studio headshot
+    setting: >
+      mottled charcoal gray painted canvas backdrop, three-quarter key light with soft fill, 85mm lens
+    expression: big genuine smile
+  library:
+    framing: head and shoulders portrait
+    setting: >
+      in front of dark wooden bookshelves, blurred books and plants behind him, soft warm key light,
+      85mm lens, shallow depth of field
+    expression: subtle confident smile
+  studio-light-gray:
+    framing: modern tech company headshot, slight three-quarter turn
+    setting: clean light gray seamless background, bright even soft light, 85mm lens
+    expression: confident friendly expression
+  park-autumn:
+    framing: candid waist-up portrait
+    setting: >
+      leaning against a railing in a city park in autumn, overcast soft light, trees in fall color behind him,
+      50mm lens
+    expression: laughing mid-conversation
+  low-key:
+    framing: dramatic low-key portrait
+    setting: >
+      dark background, single hard light from the side with deep shadows, subtle rim light,
+      editorial magazine style, 85mm lens
+    expression: calm direct gaze
+
+# Named combinations. These first four recreate the Magic Studio images.
+looks:
+  ms-brick-burgundy:    {scene: brick-alley,     outfit: burgundy-oxford}
+  ms-window-knit:       {scene: window-light,    outfit: black-cable-knit, extras: [glasses, stubble]}
+  ms-studio-black:      {scene: studio-charcoal, outfit: black-shirt,      extras: [glasses]}
+  ms-library-suit:      {scene: library,         outfit: suit-tie}
+  tech-blazer:          {scene: studio-light-gray, outfit: navy-blazer-tee}
+  park-candid:          {scene: park-autumn,     outfit: olive-field-jacket}
+  moody-leather:        {scene: low-key,         outfit: leather-jacket}

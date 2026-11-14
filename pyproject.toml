@@ -1,0 +1,24 @@
+[project]
+name = "selfshot"
+version = "0.1.0"
+description = "Personal AI headshots: train a LoRA on your photos, generate, filter by face similarity, upscale."
+requires-python = ">=3.10"
+dependencies = [
+    "fal-client>=0.5",
+    "typer>=0.12",
+    "pyyaml>=6",
+    "pillow>=10",
+    "pillow-heif>=0.16",   # reads iPhone .HEIC photos
+    "httpx>=0.27",
+    "python-dotenv>=1",
+    "numpy>=1.26",
+    "insightface>=2.1",    # ArcFace face embeddings for scoring (personal, non-commercial use)
+    "onnxruntime>=1.17",
+]
+
+[project.scripts]
+selfshot = "selfshot.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
